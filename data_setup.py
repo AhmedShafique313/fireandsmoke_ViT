@@ -3,9 +3,9 @@ from data_preprocessing import SmokeFireDataset
 from model import load_model
 
 # Define paths to your dataset folders
-train_folder = 'C:\Users\Personal\Documents\projects\train'
-test_folder = 'C:\Users\Personal\Documents\projects\test'
-valid_folder = 'C:\Users\Personal\Documents\projects\valid'
+train_folder = r'C:\Users\Personal\Documents\projects\train'
+test_folder = r'C:\Users\Personal\Documents\projects\test'
+valid_folder = r'C:\Users\Personal\Documents\projects\valid'
 
 # Helper function to get image paths and labels
 def get_image_paths_and_labels(folder):
@@ -15,8 +15,9 @@ def get_image_paths_and_labels(folder):
         label_folder = os.path.join(folder, label)
         if os.path.isdir(label_folder):
             for image_file in os.listdir(label_folder):
-                image_paths.append(os.path.join(label_folder, image_file))
-                labels.append(int(label))  # Assuming folder names are the class labels
+                if image_file.endswith(('.jpg', '.jpeg', '.png')):
+                    image_paths.append(os.path.join(label_folder, image_file))
+                    labels.append(int(label))  # Assuming folder names are the class labels
     return image_paths, labels
 
 # Get paths and labels for train, test, and validation sets

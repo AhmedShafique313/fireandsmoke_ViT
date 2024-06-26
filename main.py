@@ -6,13 +6,13 @@ from train import train_model
 from predict import predict
 
 def main():
-    # Train the model
-    train_model(train_dataset, valid_dataset)
-
-    # Predict on a new image
-    image_path = '/test_image.jpg'
-    prediction = predict(image_path)
-    print(f"Predicted class index: {prediction}")
+    print(f"Train dataset size: {len(train_dataset)}")
+    print(f"Validation dataset size: {len(valid_dataset)}")
+    
+    if len(train_dataset) == 0 or len(valid_dataset) == 0:
+        raise ValueError("One of the datasets is empty. Please check the data paths and ensure the datasets are correctly populated.")
+    
+    train_model(train_dataset.image_paths, train_dataset.labels, valid_dataset.image_paths, valid_dataset.labels)
 
 if __name__ == "__main__":
     main()
