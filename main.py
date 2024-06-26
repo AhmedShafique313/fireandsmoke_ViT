@@ -10,7 +10,7 @@ def main():
     train_model(train_dataset, valid_dataset)
 
     # Predict on a new image
-    image_path = 'path/to/test/image.jpg'
+    image_path = '/test_image.jpg'
     prediction = predict(image_path)
     print(f"Predicted class index: {prediction}")
 
