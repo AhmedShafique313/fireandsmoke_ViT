@@ -2,8 +2,8 @@ from model import load_model
 from tuning import fine_tune_model
 from transformers import ViTFeatureExtractor, ViTForImageClassification
 from data_setup import train_dataset, test_dataset, valid_dataset
-# from train import train_model
-# from predict import predict
+from train import train_model
+from predict import predict
 
 def main():
     # Train the model
