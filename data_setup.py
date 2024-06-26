@@ -1,3 +1,4 @@
+#
 import os
 from data_preprocessing import SmokeFireDataset
 from model import load_model
@@ -32,3 +33,8 @@ feature_extractor, model = load_model()
 train_dataset = SmokeFireDataset(train_image_paths, train_labels, feature_extractor)
 test_dataset = SmokeFireDataset(test_image_paths, test_labels, feature_extractor)
 valid_dataset = SmokeFireDataset(valid_image_paths, valid_labels, feature_extractor)
+
+# Print dataset sizes for debugging
+print(f"Train dataset size: {len(train_dataset)}")
+print(f"Test dataset size: {len(test_dataset)}")
+print(f"Validation dataset size: {len(valid_dataset)}")
