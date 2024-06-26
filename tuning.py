@@ -10,3 +10,12 @@ def fine_tune_model(model, train_dataset, val_dataset, output_dir='./results', n
         save_strategy="epoch",
         logging_dir='./logs'
     )
+
+    trainer = Trainer(
+        model= model,
+        args= training_args,
+        train_dataset= train_dataset,
+        eval_dataset= val_dataset
+    )
+
+    trainer.train()
